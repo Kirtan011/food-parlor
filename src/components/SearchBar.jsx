@@ -1,5 +1,3 @@
-import React from "react";
-
 const SearchBar = ({ searchQuery, setSearchQuery }) => {
   return (
     <div className="mb-4 lg:mb-6 relative">

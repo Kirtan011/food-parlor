@@ -1,13 +1,9 @@
-import { useState } from "react";
-
 const NavBar = ({ activeTab, onTabChange }) => {
   const menuItems = ["Main Menu", "Breakfast", "Dinnermenu", "Lunch Menu"];
 
   return (
     <div className="flex flex-col w-full bg-white shadow-sm font-sans">
-      {/* Top Bar */}
       <div className="flex flex-col lg:flex-row justify-between items-center p-4 border-b border-gray-100 gap-4 lg:gap-0">
-        {/* Left: Logo & Restaurant Info */}
         <div className="flex items-center gap-4 w-full lg:w-auto">
           <img
             alt="Shop Logo"
@@ -31,7 +27,6 @@ const NavBar = ({ activeTab, onTabChange }) => {
           </div>
         </div>
 
-        {/* Center: Status & Timing */}
         <div className="flex flex-col items-center lg:items-end gap-1 w-full lg:w-auto mt-2 lg:mt-0">
           <div className="flex items-center gap-2">
             <p className="text-[#009688] font-bold text-base">
@@ -52,9 +47,7 @@ const NavBar = ({ activeTab, onTabChange }) => {
           </p>
         </div>
 
-        {/* Right: Actions */}
         <div className="flex items-center gap-3 mt-4 lg:mt-0 w-full lg:w-auto justify-center lg:justify-end flex-wrap">
-          {/* Restart & Table Group */}
           <div className="flex shadow-sm rounded-md h-9">
             <button className="px-3 md:px-4 bg-white border border-r-0 border-gray-300 rounded-l-md text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
               Restart
@@ -64,7 +57,6 @@ const NavBar = ({ activeTab, onTabChange }) => {
             </div>
           </div>
 
-          {/* Lang & Phone */}
           <div className="flex gap-3 h-9">
             <button className="flex items-center gap-2 px-3 border border-gray-300 rounded-md bg-white hover:bg-gray-50 text-sm font-semibold text-gray-700 transition-colors">
               <svg
@@ -93,7 +85,6 @@ const NavBar = ({ activeTab, onTabChange }) => {
         </div>
       </div>
 
-      {/* Bottom Bar: Tabs */}
       <div className="flex overflow-x-auto no-scrollbar pb-1 pt-1 gap-6 border-b border-gray-100 bg-white md:pl-4">
         {menuItems.map((item) => (
           <button

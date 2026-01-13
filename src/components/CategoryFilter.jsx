@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 const CategoryFilter = ({ categories, activeCategory, onSelectCategory }) => {
   const scrollContainerRef = useRef(null);

@@ -1,4 +1,3 @@
-import { useState } from "react";
 const CartSidebar = ({ cartItems, clearCart }) => {
   let totalPrice = cartItems.reduce((acc, curItem) => acc + curItem.Price, 0);
   return (
@@ -7,9 +6,9 @@ const CartSidebar = ({ cartItems, clearCart }) => {
         <h2 className="text-lg font-bold text-gray-800">Your Cart</h2>
         <button
           onClick={clearCart}
-          className="text-black border p-1  rounded-lg hover:border-red-500 py-0 hover:text-red-500 bg-white cursor-pointer"
+          className="text-black border p-1 rounded-lg hover:border-red-500 py-0 hover:text-red-500 bg-white cursor-pointer"
         >
-          Clear Cart{" "}
+          Clear Cart
         </button>
       </div>
 

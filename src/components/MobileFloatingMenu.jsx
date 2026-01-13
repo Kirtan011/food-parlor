@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const MobileFloatingMenu = ({ categories, onSelectCategory }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,16 +33,13 @@ const MobileFloatingMenu = ({ categories, onSelectCategory }) => {
         </button>
       </div>
 
-      {/* Overlay & Drawer */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-end lg:hidden">
-          {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
             onClick={() => setIsOpen(false)}
           />
 
-          {/* Drawer Content */}
           <div className="relative w-full bg-white rounded-t-2xl shadow-2xl max-h-[80vh] flex flex-col animate-slide-up">
             <div className="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50 rounded-t-2xl">
               <h3 className="font-bold text-lg text-gray-800">Categories</h3>

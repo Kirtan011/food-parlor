@@ -36,7 +36,6 @@ function App() {
           const categories = parsedRes.CategoryList || [];
           setMenuData(categories);
 
-          // Set default active category
           if (categories.length > 0) {
             setActiveCategory(categories[0].CategryId);
           }
@@ -65,11 +64,8 @@ function App() {
 
   const handleTabChange = (tabName) => {
     setActiveTab(tabName);
-    // When tab changes, we might want to reset active category or select the first one from the new filtered list
-    // But since we are filtering 'visible' categories, we need to handle that.
   };
 
-  // Filter Categories based on Active Tab
   const filteredCategories = useMemo(() => {
     if (activeTab === "Main Menu") {
       return menuData;
@@ -125,10 +121,8 @@ function App() {
     return menuData;
   }, [activeTab, menuData]);
 
-  // Update active category when filteredCategories changes
   useEffect(() => {
     if (filteredCategories.length > 0) {
-      // If current activeCategory is NOT in the filtered list, switch to first available
       const exists = filteredCategories.find(
         (c) => c.CategryId === activeCategory
       );
@@ -136,7 +130,6 @@ function App() {
         setActiveCategory(filteredCategories[0].CategryId);
       }
     } else {
-      // No categories for this tab
       setActiveCategory(null);
     }
   }, [filteredCategories, activeCategory]);
@@ -178,9 +171,7 @@ function App() {
       <NavBar activeTab={activeTab} onTabChange={handleTabChange} />
 
       <div className="max-w-[1600px] mx-auto p-4 lg:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6 relative">
-        {/* Main Content Area */}
         <div className="lg:col-span-3">
-          {/* Category Filter - Hidden on Mobile to prioritize floating menu/drawer */}
           <div className="hidden lg:block mb-6 sticky top-0 bg-white z-10 pb-2 pt-2">
             <CategoryFilter
               categories={filteredCategories}
@@ -189,7 +180,6 @@ function App() {
             />
           </div>
 
-          {/* Search Bar */}
           <SearchBar
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -212,7 +202,6 @@ function App() {
           </div>
         </div>
 
-        {/* Sidebar Cart */}
         <div className="mt-8 lg:mt-0 lg:col-span-1">
           <CartSidebar clearCart={handleClearCart} cartItems={cart} />
         </div>
